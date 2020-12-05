@@ -29,3 +29,46 @@ class Solution {
         
     }
 }
+//........................................................................................................................................................................................................................
+class Solution {
+    ArrayList<Integer> map=new ArrayList<>();
+    int max=Integer.MIN_VALUE;
+    int deepestlevel=0;
+    int maxlevel=1;
+    public int maxLevelSum(TreeNode root) {
+        int map[]=new int[10000];
+        dfs(root,map,1);
+         for(int i=1;i<=deepestlevel;i++)
+         {
+if(map[i]>max)
+{
+    max=map[i];
+    maxlevel=i;
+}
+         }
+        return maxlevel;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    public void dfs(TreeNode root,int map[],int d)
+    {
+        if(root==null)
+            return;
+        if(d>deepestlevel)
+            deepestlevel=d;
+       
+        map[d]+=root.val;
+        dfs(root.left,map,d+1);
+        dfs(root.right,map,d+1);
+    }
+}
