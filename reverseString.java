@@ -1,18 +1,19 @@
-/*package whatever //do not write package name here */
-
-import java.util.*;
-
-class GFG {
-	public static void main (String[] args) {
-		Scanner sc=new Scanner(System.in);
-		String s=sc.next();
-		System.out.println(dfs(s,s.length()-1));
-	}
-	public static String dfs(String s,int n)
-	{
-	    if(s.length()==0)
-	    return "";
-	    
-	    return s.charAt(n)+dfs(s.substring(0,n),n-1);
-	}
+class Solution {
+    public void reverseString(char[] s) {
+        //reverse algo
+        int left=0;
+        int right=s.length-1;
+        while(left<right)
+        {
+            swap(left,right, s);
+            left++;
+            right--;
+        }
+    }
+    public void swap(int left,int right,char s[])
+    {
+        char temp=s[left];
+        s[left]=s[right];
+         s[right]=temp;
+    }
 }
